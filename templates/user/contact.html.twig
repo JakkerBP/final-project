@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %}Hello UserController!{% endblock %} #}
+
+{% block body %}
+
+    <!-- Main -->
+    <main id="contact">
+        <section>
+            <form action="/action_page.php">
+                <h2>Contactez-nous</h2>
+                <label for="fname">Prénom <i>(Facultatif)</i></label>
+                <input type="text" id="fname" name="firstname" placeholder="Votre prénom..">
+            
+                <label for="email">Email</label>
+                <input type="text" id="" name="email" placeholder="Votre Email..">
+            
+                <label for="description">Commentaire</label>
+                <textarea name="description" id="" cols="30" rows="5"></textarea>
+                <div class="buttonBox">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section> 
+    </main>
+
+{% endblock %}

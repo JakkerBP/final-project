@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %}Hello UserController!{% endblock %} #}
+
+{% block body %}
+
+<!-- Main -->
+    <main id="modificationCreation">
+        <section class="needBiggerScreen">
+            <div><p>Veuillez utilisez un écran plus grand pour avoir accès a cette partie du site.</p></div>
+        </section>
+        <section class="mainSection">
+            <section class="firstSection">
+                <div>
+                    <h2>Modification keycap</h2>
+                    <div class="containerOption">
+                        <label for="Font">Choisissez une police</label>
+
+                        <select id="Font">
+                            <option value="">--Liste de police--</option>
+                            <option value="">empty</option>
+                            <option value="">empty</option>
+                            <option value="">empty</option>
+                            <option value="">empty</option>
+                            <option value="">empty</option>
+                            <option value="">empty</option>
+                        </select>
+                    </div>
+                    <div class="containerColor">
+                        <h2>Couleur</h2>
+                        <div class="colorPicker">
+                            {# W8 color picker #}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="secondSection">
+                <div>
+                    <img src="../pics/kc1.png" alt="">
+                </div>
+            </section>
+            <section class="thirdSection">
+                <div>
+                    <button class="bReset">RESET</button>
+                    <button class="bSave">SAUVEGARDER</button>
+                </div> 
+            </section>
+            <section class="fourthSection">
+                <div class="topBar">
+                    <h2>Votre banque d'image</h2>
+                    <button>Ajouter une image</button>
+                </div>
+                <div class="scroller">
+                    <img src="../pics/kc1.png" alt="">
+                    <img src="../pics/kc1.png" alt="">
+                    <img src="../pics/kc1.png" alt=""><img src="../pics/kc1.png" alt="">
+                    <img src="../pics/kc1.png" alt="">
+                    <img src="../pics/kc1.png" alt=""><img src="../pics/kc1.png" alt="">
+                    <img src="../pics/kc1.png" alt="">
+                    <img src="../pics/kc1.png" alt="">
+                </div>
+            </section>
+        </section>
+    </main>
+
+{% endblock %}

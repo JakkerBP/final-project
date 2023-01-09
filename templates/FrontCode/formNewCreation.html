@@ -1,0 +1,84 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Accueil</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="https://kit.fontawesome.com/20685f7bf1.js" crossorigin="anonymous"></script>
+    </head>
+<body>
+    <!-- Header -->
+    <header>
+        <div>
+            <h1>KeycapCustom</h1>
+        </div>
+        <nav>
+            <ul>
+                <li id="li1"><a href="./home.html">Accueil</li></a> 
+                <li id="li2"><a href="./ourCreations.html">Nos créations</li></a>
+                <li id="li3"><a href="./listCreations.html">Ma personnalisation</li></a> 
+                <li id="li4"><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="userLogo">
+            <div class="buttonUser">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <div class="dropDownMenu">
+                    <ul>
+                        <a href=""><li>Mon profil</li></a>
+                        <a href=""><li>Mes commandes</li></a>
+                        <a href=""><li>Déconnexion</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main-->
+    <main id="newCreation">
+        <div>
+            <form action="/action_page.php">
+                <h2>Nouvelle création</h2>
+                <label for="fname">Type de clavier</label>
+                <input type="text" id="fname" name="firstname" placeholder="Mécanique , membrane..">
+
+                <div class="checkTool">
+                    <label for="boxNumber"> Souhaitez vous les touches "modifiers" <i>(F1 , Ctrl)</i></label>
+                    <input type="checkbox"> 
+                </div>
+            
+                <label for="email">Nombre de touche souhaité</label>
+                <input type="text" id="" name="email" placeholder="Nombre">
+            
+                <label for="description">Nom des touche souhaité <i>(Sauf touche modifiers)</i></label>
+                <textarea name="description" id="" cols="30" rows="5"></textarea>
+                <div class="buttonBox">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div> 
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="higherPartFooter">
+            <div class="titleFooter">
+                <h1>KeycapCustom</h1>
+            </div>
+            <div class="mentions">
+                <ul>
+                    <li><a href="">CGV</a></li>
+                    <li><a href="">Mentions légales</a></li>
+                    <li><a href="">A propos</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="lowerPartFooter">
+            <ul>
+                <a href=""><li><i class="fa fa-twitter" aria-hidden="true"></i></li></a>
+                <a href=""><li><i class="fa fa-facebook" aria-hidden="true"></i></li></a>
+                <a href=""><li><i class="fa fa-instagram" aria-hidden="true"></i></li></a>
+            </ul>
+        </div>
+    </footer>
+</body>

@@ -1,0 +1,1070 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "montSerrat";
+  src: url("../font/Montserrat/Montserrat-Italic-VariableFont_wght.ttf") format(‘truetype’), url("../font/Montserrat/Montserrat-VariableFont_wght.ttf") format(‘truetype’);
+}
+@-webkit-keyframes scaleIn {
+  from {
+    transform: scale(0.5, 0.5);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5, 0.5);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "montSerrat", sans-serif;
+  color: #FFFDFD;
+}
+
+body {
+  background-color: #253865;
+}
+body header {
+  display: flex;
+  background-color: #1E2F57;
+  height: 100px;
+  align-items: center;
+}
+body header .burgerMenu {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  margin-left: 25px;
+  display: none;
+}
+body header .burgerMenu .sidenav {
+  height: 35%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -250px;
+  background-color: #FFFDFD;
+  padding-top: 60px;
+  transition: left 0.5s;
+}
+body header .burgerMenu .sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+body header .burgerMenu .sidenav a:hover {
+  color: #5E80CD;
+}
+body header .burgerMenu .sidenav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+body header .burgerMenu .sidenav.active {
+  left: 0;
+}
+body header .burgerMenu .sidenav .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+body header .burgerMenu .burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: #FFFDFD;
+  margin: 6px 0;
+}
+body header .containerTitleWS {
+  width: 25%;
+}
+body header .containerTitleWS h1 {
+  text-align: center;
+  background: rgb(255, 253, 253);
+  background: radial-gradient(circle, rgb(255, 253, 253) 0%, rgb(94, 128, 205) 50%, rgb(255, 253, 253) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+body header nav {
+  width: 50%;
+}
+body header nav ul {
+  list-style-type: none;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+}
+body header nav ul li {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #5E80CD;
+}
+body header nav ul li a {
+  text-decoration: none;
+  color: #FFFDFD;
+}
+body header .userLogo {
+  width: 25%;
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+body header .userLogo .buttonUser {
+  margin-right: 5vw;
+  width: 50px;
+  height: 50px;
+}
+body header .userLogo .buttonUser i {
+  font-size: 30px;
+}
+body header .userLogo .buttonUser:hover i {
+  color: #5E80CD;
+}
+body header .userLogo .buttonUser:hover .dropDownMenu {
+  display: block;
+}
+body header .userLogo .buttonUser .dropDownMenu {
+  margin-left: -60px;
+  text-align: center;
+  margin-top: 15px;
+  display: none;
+}
+body header .userLogo .buttonUser .dropDownMenu ul {
+  list-style-type: none;
+  width: 150px;
+}
+body header .userLogo .buttonUser .dropDownMenu ul a {
+  text-decoration: none;
+}
+body header .userLogo .buttonUser .dropDownMenu ul li {
+  border-radius: 5px;
+  margin-top: 5px;
+  background-color: #5E80CD;
+}
+body footer {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #1E2F57;
+}
+body footer .higherPartFooter {
+  display: flex;
+  align-items: center;
+  height: 75%;
+}
+body footer .higherPartFooter div {
+  width: 20%;
+}
+body footer .higherPartFooter div h1 {
+  background: rgb(255, 253, 253);
+  background: radial-gradient(circle, rgb(255, 253, 253) 0%, rgb(94, 128, 205) 50%, rgb(255, 253, 253) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+body footer .higherPartFooter .mentions {
+  width: 60%;
+}
+body footer .higherPartFooter .mentions ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+body footer .higherPartFooter .mentions ul li {
+  text-transform: uppercase;
+}
+body footer .higherPartFooter .mentions ul li a {
+  text-decoration: none;
+}
+body footer .lowerPartFooter {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+body footer .lowerPartFooter ul {
+  width: 30%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+body footer .lowerPartFooter ul li {
+  font-size: 40px;
+}
+body #home {
+  padding-top: 10rem;
+}
+body #home .firstContent {
+  display: flex;
+}
+body #home .firstContent div {
+  width: 50%;
+  padding-left: 5rem;
+}
+body #home .firstContent .mainFirst {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.4rem;
+}
+body #home .firstContent .mainFirst h2 {
+  line-height: 5rem;
+  font-size: 60px;
+}
+body #home .firstContent .mainFirst p {
+  padding-top: 80px;
+  font-size: 20px;
+}
+body #home .firstContent .mainFirst i {
+  font-style: normal;
+  color: #5E80CD;
+}
+body #home .firstContent .mainFirst button {
+  margin-top: 80px;
+  height: 35px;
+  font-size: 15px;
+  width: 60%;
+  border-radius: 5px;
+  background-color: #5E80CD;
+  border: none;
+}
+body #home .firstContent .mainSecond {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0%;
+}
+body #home .firstContent .mainSecond div {
+  position: absolute;
+  height: 20vw;
+  width: 20vw;
+  margin-top: 3vw;
+  margin-left: 11vw;
+  border-radius: 50%;
+  background-color: #5E80CD;
+  z-index: 1;
+}
+body #home .firstContent .mainSecond img {
+  z-index: 2;
+  margin-left: -10vw;
+  width: 35vw;
+}
+body #home .seeNext {
+  position: absolute;
+  width: 100vw;
+  top: 93vh;
+  display: flex;
+  justify-content: center;
+}
+body #home .seeNext .arrowDown {
+  width: 50px;
+  height: 50px;
+}
+body #home .seeNext .arrowDown .circle {
+  margin-top: 5px;
+  z-index: -1;
+  border-radius: 50%;
+  background-color: deepskyblue;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  opacity: 0;
+  -webkit-animation: scaleIn 1.5s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+          animation: scaleIn 1.5s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+}
+body #home .seeNext .arrowDown a {
+  z-index: 1;
+}
+body #home .seeNext .arrowDown a i {
+  z-index: 1;
+  font-size: 40px;
+}
+body #home .secondContent {
+  margin-top: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #home .secondContent h2 {
+  text-align: center;
+  width: 60vw;
+  font-size: 3vw;
+  margin-bottom: 7rem;
+}
+body #home .secondContent .globalArticleContainer {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+body #home .secondContent .globalArticleContainer .containerArticle {
+  display: flex;
+  flex-direction: row;
+  background-color: #4361A6;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 5rem;
+}
+body #home .secondContent .globalArticleContainer .containerArticle .picContainer img {
+  width: 40vw;
+}
+body #home .secondContent .globalArticleContainer .containerArticle .contentArticle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body #home .secondContent .globalArticleContainer .containerArticle .contentArticle h3 {
+  width: 60%;
+  font-size: 35px;
+}
+body #home .secondContent .globalArticleContainer .containerArticle .contentArticle p {
+  margin-top: 40px;
+  width: 60%;
+  font-size: 1.2vw;
+}
+body #home .secondContent .globalArticleContainer .containerArticle .contentArticle button {
+  align-items: left;
+  margin-top: 40px;
+  width: 60%;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #253865;
+  border: none;
+}
+body #home .secondContent .globalArticleContainerFooter {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body #home .secondContent .globalArticleContainerFooter .containerArticle {
+  display: flex;
+  flex-direction: column;
+  background-color: #4361A6;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 5rem;
+  width: 35vw;
+}
+body #home .secondContent .globalArticleContainerFooter .containerArticle .picContainer {
+  height: 25vw;
+}
+body #home .secondContent .globalArticleContainerFooter .containerArticle .picContainer img {
+  width: 30vw;
+}
+body #home .secondContent .globalArticleContainerFooter .containerArticle .contentArticle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body #home .secondContent .globalArticleContainerFooter .containerArticle .contentArticle h3 {
+  margin-top: 2rem;
+  text-align: center;
+  width: 90%;
+  font-size: 35px;
+}
+body #home .secondContent .globalArticleContainerFooter .containerArticle .contentArticle p {
+  margin-top: 40px;
+  width: 80%;
+  font-size: 1.2vw;
+}
+body #home .secondContent .globalArticleContainerFooter .containerArticle .contentArticle button {
+  align-items: left;
+  margin-top: 40px;
+  width: 90%;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #253865;
+  border: none;
+}
+body #ourCreations {
+  margin-top: 6rem;
+}
+body #ourCreations .secondContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #ourCreations .secondContent h2 {
+  text-align: center;
+  width: 60vw;
+  font-size: 3vw;
+  margin-bottom: 7rem;
+}
+body #ourCreations .secondContent .globalArticleContainer {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+body #ourCreations .secondContent .globalArticleContainer .containerArticle {
+  display: flex;
+  flex-direction: row;
+  background-color: #4361A6;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 5rem;
+}
+body #ourCreations .secondContent .globalArticleContainer .containerArticle .picContainer img {
+  width: 20vw;
+}
+body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  align-items: left;
+  justify-content: center;
+}
+body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle h3 {
+  width: 60%;
+  font-size: 35px;
+}
+body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle p {
+  margin-top: 40px;
+  width: 90%;
+  font-size: 1.2vw;
+}
+body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle button {
+  align-items: left;
+  margin-top: 40px;
+  width: 60%;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #253865;
+  border: none;
+}
+body #contact section {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+body #contact section form {
+  background-color: #5E80CD;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+body #contact section form div {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+body #contact section form h2 {
+  font-size: 4vw;
+  color: #FFFDFD;
+  margin-bottom: 50px;
+}
+body #contact section form label {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+body #contact section form label i {
+  font-style: normal;
+  font-size: 15px;
+}
+body #contact section form input {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #5E80CD;
+  border: none;
+  border-bottom: 1px solid #1E2F57;
+  color: #FFFDFD;
+}
+body #contact section form textarea {
+  background-color: #1E2F57;
+  border-radius: 5px;
+  padding: 5px;
+}
+body #contact section form input::-moz-placeholder {
+  font-size: 15px;
+  color: #1E2F57;
+}
+body #contact section form input:-ms-input-placeholder {
+  font-size: 15px;
+  color: #1E2F57;
+}
+body #contact section form input::placeholder {
+  font-size: 15px;
+  color: #1E2F57;
+}
+body #contact section form .buttonBox {
+  margin: 0%;
+  margin-top: 50px;
+  padding: 0%;
+}
+body #contact section form .buttonBox input[type=submit] {
+  text-align: center;
+  padding: 0%;
+  padding: 5px;
+  width: 100px;
+  border: solid 3px #FFFDFD;
+}
+body #listCreations .mainContent {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  display: flex;
+  justify-content: center;
+}
+body #listCreations .mainContent .containerBox {
+  width: 90vw;
+}
+body #listCreations .mainContent .containerBox .topBar {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 50px;
+  background-color: #1E2F57;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+body #listCreations .mainContent .containerBox .topBar button {
+  padding: 5px;
+  background-color: #5E80CD;
+  border: 3px solid #FFFDFD;
+  border-radius: 10px;
+}
+body #listCreations .mainContent .containerBox .scroller {
+  width: 100%;
+  height: 55vh;
+  overflow-y: scroll;
+  scrollbar-color: #FFFDFD;
+  scrollbar-width: thin;
+  background-color: #5E80CD;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation {
+  width: 50%;
+  height: 65%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn {
+  width: 80%;
+  height: 90%;
+  background-color: #253865;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 14px;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn div {
+  margin-bottom: 25px;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn div p {
+  margin-top: 5px;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox a {
+  width: 33%;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox a button {
+  width: 90%;
+  border: none;
+  padding: 5px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox #bDetails {
+  background-color: #5E80CD;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox #bSupp {
+  background-color: red;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox #bCommand {
+  background-color: green;
+}
+body #newCreation div {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+body #newCreation div form {
+  background-color: #5E80CD;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+body #newCreation div form h2 {
+  font-size: 50px;
+  color: #FFFDFD;
+  margin-bottom: 50px;
+}
+body #newCreation div form label {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+body #newCreation div form label i {
+  font-style: normal;
+  font-size: 15px;
+}
+body #newCreation div form input {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #5E80CD;
+  border: none;
+  border-bottom: 1px solid #1E2F57;
+  color: #FFFDFD;
+}
+body #newCreation div form textarea {
+  background-color: #1E2F57;
+  border-radius: 5px;
+  padding: 5px;
+}
+body #newCreation div form input::-moz-placeholder {
+  font-size: 15px;
+  color: #1E2F57;
+}
+body #newCreation div form input:-ms-input-placeholder {
+  font-size: 15px;
+  color: #1E2F57;
+}
+body #newCreation div form input::placeholder {
+  font-size: 15px;
+  color: #1E2F57;
+}
+body #newCreation div form .checkTool {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-bottom: 1px solid #1E2F57;
+  margin-top: 5px;
+}
+body #newCreation div form .checkTool label {
+  font-size: 25px;
+}
+body #newCreation div form .checkTool label i {
+  font-size: 15px;
+}
+body #newCreation div form .buttonBox {
+  margin: 0%;
+  margin-top: 50px;
+  padding: 0%;
+}
+body #newCreation div form .buttonBox input[type=submit] {
+  text-align: center;
+  padding: 0%;
+  padding: 5px;
+  width: 100px;
+  border: solid 3px #FFFDFD;
+}
+body #detailsCreation .mainContent {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  display: flex;
+  justify-content: center;
+}
+body #detailsCreation .mainContent .containerBox {
+  width: 90vw;
+}
+body #detailsCreation .mainContent .containerBox .topBar {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 50px;
+  background-color: #1E2F57;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+body #detailsCreation .mainContent .containerBox .topBar button {
+  padding: 5px;
+  background-color: #5E80CD;
+  border: 3px solid #FFFDFD;
+  border-radius: 10px;
+}
+body #detailsCreation .mainContent .containerBox .scroller {
+  width: 100%;
+  height: 550px;
+  overflow-y: scroll;
+  scrollbar-color: #FFFDFD;
+  scrollbar-width: thin;
+  background-color: #5E80CD;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn {
+  width: 80%;
+  height: 90%;
+  background-color: #253865;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 14px;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn div p {
+  margin-top: 5px;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox img {
+  width: 100px;
+  margin-right: 4vw;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox a {
+  width: 33%;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox a button {
+  width: 90%;
+  border: none;
+  padding: 5px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox #bDetails {
+  background-color: #5E80CD;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox #bSupp {
+  background-color: red;
+}
+body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox #bModify {
+  background-color: #5E80CD;
+}
+body #modificationCreation {
+  display: flex;
+  justify-content: center;
+}
+body #modificationCreation .needBiggerScreen {
+  margin-top: 30vh;
+  margin-bottom: 30vh;
+  display: none;
+}
+body #modificationCreation .mainSection {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #5E80CD;
+  width: 90vw;
+  height: 75vh;
+  border-radius: 5px;
+}
+body #modificationCreation .mainSection section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body #modificationCreation .mainSection section div {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #253865;
+  height: 90%;
+  width: 90%;
+}
+body #modificationCreation .mainSection section div h2 {
+  font-size: 100%;
+}
+body #modificationCreation .mainSection .firstSection {
+  width: 25%;
+  height: 75%;
+}
+body #modificationCreation .mainSection .firstSection div .containerOption {
+  margin-top: 20%;
+  height: auto;
+}
+body #modificationCreation .mainSection .firstSection div .containerOption select {
+  margin-top: 10px;
+  width: 100%;
+}
+body #modificationCreation .mainSection .firstSection div div {
+  border: solid 1px white;
+}
+body #modificationCreation .mainSection .firstSection div .containerColor {
+  height: 20%;
+  width: 100%;
+  margin-top: 10%;
+  background-color: red;
+}
+body #modificationCreation .mainSection .firstSection div .containerColor div {
+  margin-top: 10%;
+}
+body #modificationCreation .mainSection .secondSection {
+  width: 75%;
+  height: 65%;
+}
+body #modificationCreation .mainSection .secondSection div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body #modificationCreation .mainSection .secondSection div img {
+  width: 35%;
+}
+body #modificationCreation .mainSection .thirdSection {
+  height: 25%;
+  width: 25%;
+}
+body #modificationCreation .mainSection .thirdSection div .bSave {
+  background-color: green;
+}
+body #modificationCreation .mainSection .thirdSection div .bReset {
+  background-color: red;
+}
+body #modificationCreation .mainSection .thirdSection div button {
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  height: 40%;
+}
+body #modificationCreation .mainSection .thirdSection div button + button {
+  margin-top: 10%;
+}
+body #modificationCreation .mainSection .fourthSection {
+  height: 35%;
+  margin-top: -5%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+body #modificationCreation .mainSection .fourthSection .topBar {
+  height: 25%;
+  border-radius: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #5E80CD;
+}
+body #modificationCreation .mainSection .fourthSection .topBar button {
+  background-color: #5E80CD;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+body #modificationCreation .mainSection .fourthSection .scroller {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  height: 65%;
+  overflow-x: scroll;
+  scrollbar-color: #FFFDFD;
+  scrollbar-width: thin;
+  display: flex;
+  flex-direction: row;
+}
+body #modificationCreation .mainSection .fourthSection .scroller img {
+  max-width: 30%;
+  margin-right: 5%;
+}
+
+@media (max-width: 980px) {
+  body header .burgerMenu {
+    display: block;
+  }
+  body header .containerTitleWS {
+    width: 50%;
+  }
+  body header nav {
+    display: none;
+  }
+  body footer .higherPartFooter .titleFooter {
+    width: 0%;
+    display: none;
+  }
+  body footer .higherPartFooter .mentions {
+    width: 100vw;
+  }
+  body #home .arrowDown {
+    display: none;
+  }
+  body #home .arrowDown .secondContent {
+    margin-top: 5rem;
+  }
+  body #ourCreations .secondContent h2 {
+    font-size: 4vw;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .picContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .picContainer img {
+    width: 100%;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle {
+    width: 60%;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle h3 {
+    width: 100%;
+    font-size: 4vw;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle p {
+    margin-top: 10px;
+    font-size: 2.5vw;
+  }
+  body #listCreations .mainContent .containerBox .scroller .containerCreation {
+    width: 100%;
+  }
+  body #detailsCreation .mainContent .containerBox .scroller .containerCreation {
+    width: 100%;
+  }
+  body #detailsCreation .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox {
+    justify-content: space-around;
+  }
+  body #modificationCreation .mainSection {
+    display: none;
+  }
+  body #modificationCreation .needBiggerScreen {
+    display: block;
+  }
+  body #modificationCreation footer {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  body header .containerTitleWS {
+    font-size: 2vw;
+  }
+  body #home .firstContent .mainFirst {
+    width: 90%;
+  }
+  body #home .firstContent .mainFirst h2 {
+    font-size: 10vw;
+  }
+  body #home .firstContent .mainFirst button {
+    width: 100%;
+  }
+  body #home .firstContent .mainSecond {
+    display: none;
+  }
+  body #home .secondContent {
+    margin-top: 7rem;
+  }
+  body #home .secondContent .globalArticleContainer .containerArticle .picContainer {
+    width: 30%;
+    display: flex;
+    align-items: center;
+  }
+  body #home .secondContent .globalArticleContainer .containerArticle .picContainer img {
+    width: 100%;
+  }
+  body #home .secondContent .globalArticleContainer .containerArticle .contentArticle {
+    width: 70%;
+  }
+  body #home .secondContent .globalArticleContainer .containerArticle .contentArticle h3 {
+    font-size: 4vw;
+  }
+  body #home .secondContent .globalArticleContainer .containerArticle .contentArticle p {
+    margin-top: 10px;
+    font-size: 2.5vw;
+  }
+  body #home .secondContent .globalArticleContainer .containerArticle .contentArticle button {
+    margin-top: 10px;
+  }
+  body #home .secondContent .globalArticleContainerFooter {
+    flex-direction: column;
+  }
+  body #home .secondContent .globalArticleContainerFooter .containerArticle {
+    width: 60%;
+  }
+  body #home .secondContent .globalArticleContainerFooter .containerArticle .picContainer {
+    display: flex;
+    justify-content: center;
+  }
+  body #home .secondContent .globalArticleContainerFooter .containerArticle .picContainer img {
+    width: 80%;
+  }
+  body #home .secondContent .globalArticleContainerFooter .containerArticle .contentArticle h3 {
+    font-size: 4vw;
+  }
+  body #home .secondContent .globalArticleContainerFooter .containerArticle .contentArticle p {
+    margin-top: 10px;
+    font-size: 2.5vw;
+  }
+  body #home .secondContent .globalArticleContainerFooter .containerArticle .contentArticle button {
+    width: 70%;
+    margin-top: 10px;
+  }
+  body #ourCreations .secondContent h2 {
+    font-size: 4vw;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .picContainer {
+    height: 200%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .picContainer img {
+    width: 100%;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle {
+    width: 60%;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle h3 {
+    width: 100%;
+    font-size: 4vw;
+  }
+  body #ourCreations .secondContent .globalArticleContainer .containerArticle .contentArticle p {
+    margin-top: 10px;
+    font-size: 2.5vw;
+  }
+}/*# sourceMappingURL=style.css.map */
