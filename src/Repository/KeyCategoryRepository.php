@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\KeycapCustom;
+use App\Entity\KeyCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<KeycapCustom>
+ * @extends ServiceEntityRepository<KeyCategory>
  *
- * @method KeycapCustom|null find($id, $lockMode = null, $lockVersion = null)
- * @method KeycapCustom|null findOneBy(array $criteria, array $orderBy = null)
- * @method KeycapCustom[]    findAll()
- * @method KeycapCustom[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method KeyCategory|null find($id, $lockMode = null, $lockVersion = null)
+ * @method KeyCategory|null findOneBy(array $criteria, array $orderBy = null)
+ * @method KeyCategory[]    findAll()
+ * @method KeyCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class KeycapCustomRepository extends ServiceEntityRepository
+class KeyCategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, KeycapCustom::class);
+        parent::__construct($registry, KeyCategory::class);
     }
 
-    public function save(KeycapCustom $entity, bool $flush = false): void
+    public function save(KeyCategory $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class KeycapCustomRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(KeycapCustom $entity, bool $flush = false): void
+    public function remove(KeyCategory $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class KeycapCustomRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return KeycapCustom[] Returns an array of KeycapCustom objects
+//     * @return KeyCategory[] Returns an array of KeyCategory objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class KeycapCustomRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?KeycapCustom
+//    public function findOneBySomeField($value): ?KeyCategory
 //    {
 //        return $this->createQueryBuilder('k')
 //            ->andWhere('k.exampleField = :val')

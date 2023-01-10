@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}KeyCategory index{% endblock %}
+
+{% block body %}
+    <h1>KeyCategory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CategoryName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for key_category in key_categories %}
+            <tr>
+                <td>{{ key_category.id }}</td>
+                <td>{{ key_category.categoryName }}</td>
+                <td>
+                    <a href="{{ path('app_admin_key_category_show', {'id': key_category.id}) }}">show</a>
+                    <a href="{{ path('app_admin_key_category_edit', {'id': key_category.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_key_category_new') }}">Create new</a>
+{% endblock %}

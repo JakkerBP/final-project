@@ -14,13 +14,10 @@ class Adress
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $adress_line = null;
+    private ?string $adressLine = null;
 
     #[ORM\Column]
-    private ?int $postal_code = null;
-
-    #[ORM\OneToOne(mappedBy: 'adress', cascade: ['persist', 'remove'])]
-    private ?Customer $customer = null;
+    private ?int $postalCode = null;
 
     #[ORM\ManyToOne(inversedBy: 'adresses')]
     #[ORM\JoinColumn(nullable: false)]
@@ -33,49 +30,28 @@ class Adress
 
     public function getAdressLine(): ?string
     {
-        return $this->adress_line;
+        return $this->adressLine;
     }
 
-    public function setAdressLine(string $adress_line): self
+    public function setAdressLine(string $adressLine): self
     {
-        $this->adress_line = $adress_line;
+        $this->adressLine = $adressLine;
 
         return $this;
     }
 
     public function getPostalCode(): ?int
     {
-        return $this->postal_code;
+        return $this->postalCode;
     }
 
-    public function setPostalCode(int $postal_code): self
+    public function setPostalCode(int $postalCode): self
     {
-        $this->postal_code = $postal_code;
+        $this->postalCode = $postalCode;
 
         return $this;
     }
 
-    public function getCustomer(): ?Customer
-    {
-        return $this->customer;
-    }
-
-    public function setCustomer(?Customer $customer): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($customer === null && $this->customer !== null) {
-            $this->customer->setAdress(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($customer !== null && $customer->getAdress() !== $this) {
-            $customer->setAdress($this);
-        }
-
-        $this->customer = $customer;
-
-        return $this;
-    }
 
     public function getCity(): ?City
     {

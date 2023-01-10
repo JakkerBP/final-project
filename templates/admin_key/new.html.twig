@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Key{% endblock %}
+
+{% block body %}
+    <h1>Create new Key</h1>
+
+    {{ include('admin_key/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_key_index') }}">back to list</a>
+{% endblock %}

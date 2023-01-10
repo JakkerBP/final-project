@@ -26,8 +26,10 @@ $whiteColor:#FFFDFD;
     color: $whiteColor;
     
 }
+
 body{
     background-color: $bgColor;
+
     header{
         display: flex;
         background-color: $colorHeaderFooter;
@@ -165,6 +167,19 @@ body{
                             background-color: $articleBis;
                         }
                     }
+                }
+            }
+        }
+    }
+    form{
+        div{
+            div{
+                input{
+                    color: black;
+
+                }
+                select{
+                    color: black;
                 }
             }
         }

@@ -157,6 +157,12 @@ body header .userLogo .buttonUser .dropDownMenu ul li {
   margin-top: 5px;
   background-color: #5E80CD;
 }
+body form div div input {
+  color: black;
+}
+body form div div select {
+  color: black;
+}
 body footer {
   height: 200px;
   display: flex;

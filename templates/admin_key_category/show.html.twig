@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}KeyCategory{% endblock %}
+
+{% block body %}
+    <h1>KeyCategory</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ key_category.id }}</td>
+            </tr>
+            <tr>
+                <th>CategoryName</th>
+                <td>{{ key_category.categoryName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_key_category_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_key_category_edit', {'id': key_category.id}) }}">edit</a>
+
+    {{ include('admin_key_category/_delete_form.html.twig') }}
+{% endblock %}

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
-    #[Route('/home', name: 'home_user')]
+    #[Route('/', name: 'home_user')]
     public function index(): Response
     {
         return $this->render('user/index.html.twig', [
@@ -16,7 +16,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/our-creations', name: 'ourCreations_user')]
+    #[Route('/our-creations', name: 'ourC_user')]
     public function ourCreations(): Response
     {
         return $this->render('user/ourCreations.html.twig', [

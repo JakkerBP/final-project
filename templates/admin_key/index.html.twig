@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Key index{% endblock %}
+
+{% block body %}
+    <h1>Key index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>KeyPreview</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for key in keys %}
+            <tr>
+                <td>{{ key.id }}</td>
+                <td>{{ key.name }}</td>
+                <td>{{ key.symbol }}</td>
+                <td>{{ key.keyPreview }}</td>
+                <td>
+                    <a href="{{ path('app_admin_key_show', {'id': key.id}) }}">show</a>
+                    <a href="{{ path('app_admin_key_edit', {'id': key.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_key_new') }}">Create new</a>
+{% endblock %}

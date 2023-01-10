@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\KeycapCustomRepository;
+use App\Repository\ProjectCustomKeyRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: KeycapCustomRepository::class)]
-class KeycapCustom
+#[ORM\Entity(repositoryClass: ProjectCustomKeyRepository::class)]
+class ProjectCustomKey
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,11 +19,12 @@ class KeycapCustom
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $color = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $picture = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $modified_at = null;
+    #[ORM\ManyToOne(inversedBy: 'projectCustomKeys')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Project $project = null;
 
     public function getId(): ?int
     {
@@ -54,26 +55,26 @@ class KeycapCustom
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getPicture(): ?string
     {
-        return $this->created_at;
+        return $this->picture;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    public function setPicture(?string $picture): self
     {
-        $this->created_at = $created_at;
+        $this->picture = $picture;
 
         return $this;
     }
 
-    public function getModifiedAt(): ?\DateTimeImmutable
+    public function getProject(): ?Project
     {
-        return $this->modified_at;
+        return $this->project;
     }
 
-    public function setModifiedAt(?\DateTimeImmutable $modified_at): self
+    public function setProject(?Project $project): self
     {
-        $this->modified_at = $modified_at;
+        $this->project = $project;
 
         return $this;
     }

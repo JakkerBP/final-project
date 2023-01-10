@@ -15,19 +15,23 @@ class Order
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $order_at = null;
+    private ?\DateTimeImmutable $orderAt = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $payment_at = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $delivery_at = null;
-
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $status = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $comment = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $paidAt = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $deliveryAt = null;
+
+    #[ORM\OneToOne(inversedBy: 'orderStat', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Project $project = null;
 
     public function getId(): ?int
     {
@@ -36,36 +40,12 @@ class Order
 
     public function getOrderAt(): ?\DateTimeImmutable
     {
-        return $this->order_at;
+        return $this->orderAt;
     }
 
-    public function setOrderAt(\DateTimeImmutable $order_at): self
+    public function setOrderAt(\DateTimeImmutable $orderAt): self
     {
-        $this->order_at = $order_at;
-
-        return $this;
-    }
-
-    public function getPaymentAt(): ?\DateTimeImmutable
-    {
-        return $this->payment_at;
-    }
-
-    public function setPaymentAt(?\DateTimeImmutable $payment_at): self
-    {
-        $this->payment_at = $payment_at;
-
-        return $this;
-    }
-
-    public function getDeliveryAt(): ?\DateTimeImmutable
-    {
-        return $this->delivery_at;
-    }
-
-    public function setDeliveryAt(?\DateTimeImmutable $delivery_at): self
-    {
-        $this->delivery_at = $delivery_at;
+        $this->orderAt = $orderAt;
 
         return $this;
     }
@@ -90,6 +70,42 @@ class Order
     public function setComment(?string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getPaidAt(): ?\DateTimeImmutable
+    {
+        return $this->paidAt;
+    }
+
+    public function setPaidAt(?\DateTimeImmutable $paidAt): self
+    {
+        $this->paidAt = $paidAt;
+
+        return $this;
+    }
+
+    public function getDeliveryAt(): ?\DateTimeImmutable
+    {
+        return $this->deliveryAt;
+    }
+
+    public function setDeliveryAt(?\DateTimeImmutable $deliveryAt): self
+    {
+        $this->deliveryAt = $deliveryAt;
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(Project $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }

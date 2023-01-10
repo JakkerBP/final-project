@@ -25,9 +25,9 @@
                     <a id="closeBtn" href="#" class="close">×</a>
                     <ul>
                     <li><a href="{{ path('home_user') }}">Accueil</a></li>
-                    <li><a href="/our-creations">Nos créations</a></li>
-                    <li><a href="/list-creation">Ma personnalisation</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="{{ path('ourC_user') }}">Nos créations</a></li>
+                    <li><a href="{{ path('listC_user') }}">Ma personnalisation</a></li>
+                    <li><a href="{{ path('contact_user') }}">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -44,10 +44,10 @@
             </div>
             <nav>
                 <ul>
-                    <li id="li1"><a href="/home">Accueil</li></a> 
-                    <li id="li2"><a href="/our-creations">Nos créations</li></a>
-                    <li id="li3"><a href="/list-creation">Ma personnalisation</li></a> 
-                    <li id="li4"><a href="/contact">Contact</a></li>
+                    <li id="li1"><a href="{{ path('home_user') }}">Accueil</li></a> 
+                    <li id="li2"><a href="{{ path('ourC_user') }}">Nos créations</li></a>
+                    <li id="li3"><a href="{{ path('listC_user') }}">Ma personnalisation</li></a> 
+                    <li id="li4"><a href="{{ path('contact_user') }}">Contact</a></li>
                 </ul>
             </nav>
             <div class="userLogo">
