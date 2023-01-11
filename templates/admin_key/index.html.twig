@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Symbol</th>
+                <th>category ID</th>
                 <th>KeyPreview</th>
                 <th>actions</th>
             </tr>
@@ -21,6 +22,7 @@
                 <td>{{ key.id }}</td>
                 <td>{{ key.name }}</td>
                 <td>{{ key.symbol }}</td>
+                <td>{{ key.category.id }}</td>
                 <td>{{ key.keyPreview }}</td>
                 <td>
                     <a href="{{ path('app_admin_key_show', {'id': key.id}) }}">show</a>

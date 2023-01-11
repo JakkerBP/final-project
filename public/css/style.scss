@@ -180,10 +180,15 @@ body{
                 }
                 select{
                     color: black;
+                    option{
+                        color: black;
+                        background-color: black;
+                    }
                 }
             }
         }
     }
+        
     footer{
         height: 200px;
         display: flex;
