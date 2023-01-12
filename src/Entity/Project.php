@@ -30,14 +30,17 @@ class Project
     #[ORM\ManyToMany(targetEntity: KeyCategory::class, inversedBy: 'projects')]
     private Collection $keyCategory;
 
-    #[ORM\OneToOne(inversedBy: 'project', cascade: ['persist', 'remove'])]
-    private ?Customer $customer = null;
+
 
     #[ORM\OneToOne(mappedBy: 'project', cascade: ['persist', 'remove'])]
     private ?Order $orderStat = null;
 
     #[ORM\OneToMany(mappedBy: 'project', targetEntity: ProjectCustomKey::class)]
     private Collection $projectCustomKeys;
+
+    #[ORM\ManyToOne(inversedBy: 'projects')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Customer $customer = null;
 
     public function __construct()
     {
@@ -122,18 +125,6 @@ class Project
         return $this;
     }
 
-    public function getCustomer(): ?Customer
-    {
-        return $this->customer;
-    }
-
-    public function setCustomer(?Customer $customer): self
-    {
-        $this->customer = $customer;
-
-        return $this;
-    }
-
     public function getOrderStat(): ?Order
     {
         return $this->orderStat;
@@ -177,6 +168,18 @@ class Project
                 $projectCustomKey->setProject(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customer $customer): self
+    {
+        $this->customer = $customer;
 
         return $this;
     }

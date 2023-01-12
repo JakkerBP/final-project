@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\User;
 use App\Entity\Adress;
 use App\Entity\Customer;
 use Symfony\Component\Form\AbstractType;
@@ -10,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Customer1Type extends AbstractType
+class UserToCustomerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -18,15 +17,10 @@ class Customer1Type extends AbstractType
             ->add('phone')
             ->add('name')
             ->add('surname')
-            ->add('adress', EntityType::class,[
+            ->add('adress',EntityType::class,[
                 'class' => Adress::class,
                 'choice_label' => 'adressLine',
             ])
-            ->add('user', EntityType::class,[
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
-            ->add('project')
         ;
     }
 

@@ -22,15 +22,15 @@ class Customer
     #[ORM\Column(length: 50)]
     private ?string $surname = null;
 
-    #[ORM\OneToOne(inversedBy: 'customer', cascade: ['persist', 'remove'])]
-    private ?Adress $adress = null;
 
     #[ORM\OneToOne(inversedBy: 'customer', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\OneToOne(mappedBy: 'customer', cascade: ['persist', 'remove'])]
-    private ?Project $project = null;
+
+    #[ORM\OneToOne(inversedBy: 'customer', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Adress $adress = null;
 
 
     public function getId(): ?int
@@ -74,17 +74,6 @@ class Customer
         return $this;
     }
 
-    public function getAdress(): ?Adress
-    {
-        return $this->adress;
-    }
-
-    public function setAdress(?Adress $adress): self
-    {
-        $this->adress = $adress;
-
-        return $this;
-    }
 
     public function getUser(): ?User
     {
@@ -98,24 +87,16 @@ class Customer
         return $this;
     }
 
-    public function getProject(): ?Project
+
+
+    public function getAdress(): ?Adress
     {
-        return $this->project;
+        return $this->adress;
     }
 
-    public function setProject(?Project $project): self
+    public function setAdress(Adress $adress): self
     {
-        // unset the owning side of the relation if necessary
-        if ($project === null && $this->project !== null) {
-            $this->project->setCustomer(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($project !== null && $project->getCustomer() !== $this) {
-            $project->setCustomer($this);
-        }
-
-        $this->project = $project;
+        $this->adress = $adress;
 
         return $this;
     }

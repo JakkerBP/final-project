@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Customer;
+use App\Form\UserToCustomerType;
+use App\Repository\CustomerRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
 {
@@ -16,6 +20,24 @@ class UserController extends AbstractController
         ]);
     }
 
+    #[Route('/customer/new', name: 'app_admin_customer_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, CustomerRepository $customerRepository): Response
+    {
+        $customer = new Customer();
+        $form = $this->createForm(UserToCustomerType::class, $customer);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $customerRepository->save($customer, true);
+
+            return $this->redirectToRoute('app_admin_customer_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('admin_customer/new.html.twig', [
+            'customer' => $customer,
+            'form' => $form,
+        ]);
+    }
     #[Route('/our-creations', name: 'ourC_user')]
     public function ourCreations(): Response
     {

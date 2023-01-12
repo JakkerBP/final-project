@@ -23,6 +23,10 @@ class Adress
     #[ORM\JoinColumn(nullable: false)]
     private ?City $city = null;
 
+    #[ORM\OneToOne(mappedBy: 'adress', cascade: ['persist', 'remove'])]
+    private ?Customer $customer = null;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -64,6 +68,24 @@ class Adress
 
         return $this;
     }
+
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(Customer $customer): self
+    {
+        // set the owning side of the relation if necessary
+        if ($customer->getAdress() !== $this) {
+            $customer->setAdress($this);
+        }
+
+        $this->customer = $customer;
+
+        return $this;
+    }
+
 
 
 }

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Customer;
-use App\Form\Customer1Type;
+use App\Form\CustomerType;
 use App\Repository\CustomerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,18 +16,17 @@ class AdminCustomerController extends AbstractController
     #[Route('/', name: 'app_admin_customer_index', methods: ['GET'])]
     public function index(CustomerRepository $customerRepository): Response
     {
-        // dd('salut');
-        dd($customerRepository->findAll());
+        
         return $this->render('admin_customer/index.html.twig', [
-            'customers' => $customerRepository->findAll(),
-        ]);
+            'customers' => $customerRepository->findAll()]
+        );
     }
 
     #[Route('/new', name: 'app_admin_customer_new', methods: ['GET', 'POST'])]
     public function new(Request $request, CustomerRepository $customerRepository): Response
     {
         $customer = new Customer();
-        $form = $this->createForm(Customer1Type::class, $customer);
+        $form = $this->createForm(CustomerType::class, $customer);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +52,7 @@ class AdminCustomerController extends AbstractController
     #[Route('/{id}/edit', name: 'app_admin_customer_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Customer $customer, CustomerRepository $customerRepository): Response
     {
-        $form = $this->createForm(Customer1Type::class, $customer);
+        $form = $this->createForm(CustomerType::class, $customer);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
