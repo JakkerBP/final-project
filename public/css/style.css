@@ -157,16 +157,6 @@ body header .userLogo .buttonUser .dropDownMenu ul li {
   margin-top: 5px;
   background-color: #5E80CD;
 }
-body form div div input {
-  color: black;
-}
-body form div div select {
-  color: black;
-}
-body form div div select option {
-  color: black;
-  background-color: black;
-}
 body footer {
   height: 200px;
   display: flex;
@@ -598,14 +588,25 @@ body #listCreations .mainContent .containerBox .scroller .containerCreation .box
   font-size: 14px;
 }
 body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn div {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn div p {
+  margin-top: 5px;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn div .inlineColor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn div .inlineColor .myColor {
+  margin-left: 10px;
   margin-top: 5px;
 }
 body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
   width: 100%;
 }
 body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox a {
@@ -921,6 +922,21 @@ body #modificationCreation .mainSection .fourthSection .scroller {
 body #modificationCreation .mainSection .fourthSection .scroller img {
   max-width: 30%;
   margin-right: 5%;
+}
+body form div {
+  color: black;
+}
+body form div input {
+  color: black;
+}
+body form div div input {
+  color: black;
+}
+body form div div select {
+  color: black;
+}
+body form div div select option {
+  color: black;
 }
 
 @media (max-width: 980px) {

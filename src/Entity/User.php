@@ -29,7 +29,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Customer $customer = null;
 
     public function getId(): ?int
@@ -107,15 +107,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->customer;
     }
 
-    public function setCustomer(Customer $customer): self
+    public function setCustomer(?Customer $customer): self
     {
-        // set the owning side of the relation if necessary
-        if ($customer->getUser() !== $this) {
-            $customer->setUser($this);
-        }
-
         $this->customer = $customer;
 
         return $this;
     }
+
+
 }

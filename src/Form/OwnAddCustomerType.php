@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserToCustomerType extends AbstractType
+class OwnAddCustomerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -17,10 +17,12 @@ class UserToCustomerType extends AbstractType
             ->add('phone')
             ->add('name')
             ->add('surname')
-            ->add('adress',EntityType::class,[
+            ->add('user')
+            ->add('adress' , EntityType::class,[
                 'class' => Adress::class,
-                'choice_label' => 'adressLine',
+                'choice_label' => 'Adress_Line',
             ])
+            
         ;
     }
 

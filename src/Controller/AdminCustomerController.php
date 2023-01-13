@@ -16,10 +16,9 @@ class AdminCustomerController extends AbstractController
     #[Route('/', name: 'app_admin_customer_index', methods: ['GET'])]
     public function index(CustomerRepository $customerRepository): Response
     {
-        
         return $this->render('admin_customer/index.html.twig', [
-            'customers' => $customerRepository->findAll()]
-        );
+            'customers' => $customerRepository->findAll(),
+        ]);
     }
 
     #[Route('/new', name: 'app_admin_customer_new', methods: ['GET', 'POST'])]

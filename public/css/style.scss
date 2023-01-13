@@ -30,6 +30,7 @@ $whiteColor:#FFFDFD;
 body{
     background-color: $bgColor;
 
+
     header{
         display: flex;
         background-color: $colorHeaderFooter;
@@ -171,23 +172,7 @@ body{
             }
         }
     }
-    form{
-        div{
-            div{
-                input{
-                    color: black;
 
-                }
-                select{
-                    color: black;
-                    option{
-                        color: black;
-                        background-color: black;
-                    }
-                }
-            }
-        }
-    }
         
     footer{
         height: 200px;
@@ -639,14 +624,27 @@ body{
                             padding: 20px;
                             font-size: 14px;
                             div{
-                                margin-bottom: 25px;
+                                margin-bottom: 15px;
+                                
                                 p{
+                                    
                                     margin-top: 5px;
+                                }
+                                .inlineColor{
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    .myColor{
+                                        margin-left: 10px;
+                                        margin-top: 5px;
+                                    }
                                 }
                             }
                             .buttonBox{
                                 display: flex;
                                 flex-direction: row;
+                                justify-content: space-between;
+                                align-items: baseline;
                                 width: 100%;
                                 a{
                                     width: 33%;
@@ -978,6 +976,27 @@ body{
             }
         }
     }
+    form{
+        // background-color: red; 
+        div{
+            input{
+                color: black;
+            }
+            color: black;
+            div{
+                input{
+                    color: black;
+                }
+                select{
+                    color: black;
+                    option{
+                        color: black;
+                        // background-color: black;
+                    }
+                }
+            }
+        }
+    }
 }
 @media (max-width: 980px) {
 
@@ -1202,4 +1221,5 @@ body{
             }
         }
     }
+
   }

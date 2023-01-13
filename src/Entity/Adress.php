@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AdressRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AdressRepository::class)]
@@ -23,8 +25,14 @@ class Adress
     #[ORM\JoinColumn(nullable: false)]
     private ?City $city = null;
 
-    #[ORM\OneToOne(mappedBy: 'adress', cascade: ['persist', 'remove'])]
-    private ?Customer $customer = null;
+    #[ORM\OneToMany(mappedBy: 'adress', targetEntity: Customer::class)]
+    private Collection $customers;
+
+    public function __construct()
+    {
+        $this->customers = new ArrayCollection();
+    }
+
 
 
     public function getId(): ?int
@@ -69,22 +77,36 @@ class Adress
         return $this;
     }
 
-    public function getCustomer(): ?Customer
+    /**
+     * @return Collection<int, Customer>
+     */
+    public function getCustomers(): Collection
     {
-        return $this->customer;
+        return $this->customers;
     }
 
-    public function setCustomer(Customer $customer): self
+    public function addCustomer(Customer $customer): self
     {
-        // set the owning side of the relation if necessary
-        if ($customer->getAdress() !== $this) {
+        if (!$this->customers->contains($customer)) {
+            $this->customers->add($customer);
             $customer->setAdress($this);
         }
 
-        $this->customer = $customer;
+        return $this;
+    }
+
+    public function removeCustomer(Customer $customer): self
+    {
+        if ($this->customers->removeElement($customer)) {
+            // set the owning side to null (unless already changed)
+            if ($customer->getAdress() === $this) {
+                $customer->setAdress(null);
+            }
+        }
 
         return $this;
     }
+
 
 
 

@@ -18,15 +18,14 @@ class CustomerType extends AbstractType
             ->add('phone')
             ->add('name')
             ->add('surname')
-            ->add('adress',EntityType::class,[
+            // ->add('user', EntityType::class,[
+            //     'class' => User::class,
+            //     'choice_label' => 'id',
+            // ])
+            ->add('adress', EntityType::class,[
                 'class' => Adress::class,
-                'choice_label' => 'adressLine',
+                'choice_label' => 'Adress_Line',
             ])
-            ->add('user',EntityType::class,[
-                'class' => User::class,
-                'choice_label' => 'id',
-            ])
-            ->add('project')
         ;
     }
 

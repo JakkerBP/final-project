@@ -2,31 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\City;
-use App\Entity\Department;
+use App\Entity\Project;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CityType extends AbstractType
+class Project1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('department', EntityType::class,[
-            'class' => Department::class,
-            'choice_label' => 'name',
-        ])
-        ->add('name')
+            ->add('name')
+            ->add('font')
+            ->add('color')
+            ->add('createdAt')
+            ->add('keyCategory')
+            ->add('orderStat')
+            ->add('customer')
         ;
-        
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => City::class,
+            'data_class' => Project::class,
         ]);
     }
 }

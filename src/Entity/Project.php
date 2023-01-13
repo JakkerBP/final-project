@@ -25,7 +25,7 @@ class Project
     private ?string $color = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\ManyToMany(targetEntity: KeyCategory::class, inversedBy: 'projects')]
     private Collection $keyCategory;
@@ -41,6 +41,8 @@ class Project
     #[ORM\ManyToOne(inversedBy: 'projects')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Customer $customer = null;
+
+
 
     public function __construct()
     {
@@ -183,4 +185,6 @@ class Project
 
         return $this;
     }
+
+
 }

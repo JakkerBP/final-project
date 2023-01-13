@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProjectController!{% endblock %}
+
+{% block body %}
+
+<main id="listCreations">
+        <div class="mainContent">
+            <div class="containerBox">
+                <div class="topBar">
+                    <h2>Liste de vos créations</h2>
+                    <a href="{{ path('app_project_new') }}"><button>Commencer une nouvelle création</button></a>
+                </div>
+                <div class="scroller">
+                {% if creations is empty %}
+                    <div style=" display:flex;align-items:center; justify-content:center; width:100%;">
+                        <h2> Vous n'avez pas de créations </h2>
+                    </div>
+                {% elseif creations is defined %}
+                    {% for creation in creations %}
+                        <div class="containerCreation">
+                            <div class="boxIn">
+                                <div>
+                                    <p>Numéro de création : {{ creation.id }}</p>
+                                </div>
+                                <div>
+                                    <p>Nom de la création : {{ creation.name }}</p>
+                                    <p>Font global : {{ creation.font }}</p>
+                                    <div class="inlineColor">
+                                        <p>Couleur global : </p>
+                                        <div class="myColor" style="height: 10px; width:10px; background-color: {{ creation.color }} ;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p>Création commencer le : {{ creation.createdAt|date('d-m-Y') }}</p>
+                                    
+                                </div>
+                                <div class="buttonBox">
+                                    <a href="./detailsCreation.html"><button id="bDetails">Détails</button></a>
+                                    <a href=""><button id="bSupp">Supprimer</button></a>
+                                    <a href=""><button id="bCommand">Commander</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                
+                {% endif %}
+                </>
+            </div>
+        </div>
+    </main>
+{% endblock %}

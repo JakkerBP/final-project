@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Project;
 use App\Entity\Customer;
-use App\Form\UserToCustomerType;
+use App\Form\ProjectType;
+use App\Form\OwnAddCustomerType;
 use App\Repository\CustomerRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
@@ -17,25 +20,6 @@ class UserController extends AbstractController
     {
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
-        ]);
-    }
-
-    #[Route('/customer/new', name: 'app_admin_customer_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, CustomerRepository $customerRepository): Response
-    {
-        $customer = new Customer();
-        $form = $this->createForm(UserToCustomerType::class, $customer);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $customerRepository->save($customer, true);
-
-            return $this->redirectToRoute('app_admin_customer_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('admin_customer/new.html.twig', [
-            'customer' => $customer,
-            'form' => $form,
         ]);
     }
     #[Route('/our-creations', name: 'ourC_user')]
@@ -81,4 +65,30 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+    #[Route('/customer/new', name: 'contact_user')]
+    public function new(UserInterface $user, Request $request, CustomerRepository $customerRepository): Response
+    {
+        $customer = new Customer();
+        $form = $this->createForm(OwnAddCustomerType::class, $customer);
+        
+        $userId = $user->getId();
+        $form->get('user')->setData($userId);
+
+
+
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $customerRepository->save($customer, true);
+
+            return $this->redirectToRoute('app_admin_customer_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('admin_customer/new.html.twig', [
+            'customer' => $customer,
+            'form' => $form,
+        ]);
+    }
+
 }
