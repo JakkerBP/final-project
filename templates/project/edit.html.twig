@@ -12,25 +12,8 @@
             <section class="firstSection">
                 <div>
                     <h2>Modification keycap</h2>
-                    <div class="containerOption">
-                        <label for="Font">Choisissez une police</label>
-
-                        <select id="Font">
-                            <option value="">--Liste de police--</option>
-                            <option value="">empty</option>
-                            <option value="">empty</option>
-                            <option value="">empty</option>
-                            <option value="">empty</option>
-                            <option value="">empty</option>
-                            <option value="">empty</option>
-                        </select>
-                    </div>
-                    <div class="containerColor">
-                        <h2>Couleur</h2>
-                        <div class="colorPicker">
-                            {# W8 color picker #}
-                        </div>
-                    </div>
+                    
+                    {{ include('project/_form.html.twig') }}
                 </div>
             </section>
             <section class="secondSection">

@@ -26,6 +26,10 @@ class ProjectCustomKey
     #[ORM\JoinColumn(nullable: false)]
     private ?Project $project = null;
 
+    #[ORM\OneToOne(inversedBy: 'projectCustomKey', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Key $keyy = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +79,18 @@ class ProjectCustomKey
     public function setProject(?Project $project): self
     {
         $this->project = $project;
+
+        return $this;
+    }
+
+    public function getKeyy(): ?Key
+    {
+        return $this->keyy;
+    }
+
+    public function setKeyy(Key $keyy): self
+    {
+        $this->keyy = $keyy;
 
         return $this;
     }

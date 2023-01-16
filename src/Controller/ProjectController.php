@@ -8,8 +8,12 @@ use App\Entity\Project;
 use App\Entity\Customer;
 use App\Form\ProjectType;
 
+use App\Entity\KeyCategory;
+use App\Entity\ProjectCustomKey;
+use App\Form\ProjectCustomKeyType;
 use App\Repository\ProjectRepository;
 use App\Repository\CustomerRepository;
+use App\Repository\KeyCategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +30,7 @@ class ProjectController extends AbstractController
     //     ]);
     // }
     #[Route('/project/new', name: 'app_project_new')]
-    public function newProject(Request $request , ProjectRepository $projectRepository , UserInterface $userInterface, CustomerRepository $customerRepository): Response
+    public function newProject(Request $request ,KeyCategoryRepository $keyCategoryRepository ,ProjectRepository $projectRepository , UserInterface $userInterface, CustomerRepository $customerRepository): Response
     {
         
         $customerId = $this->getUser()->getCustomer()->getId();
@@ -36,8 +40,14 @@ class ProjectController extends AbstractController
         $project->setCustomer($customer);
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
+        // $keyCategoryCatch = $keyCategoryRepository->findBy(
+        //     ['id' => [1,2]],
+        //     ['id' => 'ASC']
+        // );
+        // $project->addKeyCategory($keyCategoryCatch);
         
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $projectRepository->save($project, true);
 
             return $this->redirectToRoute('app_project_list', [], Response::HTTP_SEE_OTHER);
@@ -68,14 +78,15 @@ class ProjectController extends AbstractController
         ]);
     }
     #[Route('/project/edit/{id}', name: 'app_project_edit', methods: ['GET', 'POST'])]
-    public function editProject( UserInterface $userInterface , ProjectRepository $projectRepository , CustomerRepository $customerRepository): Response
+    public function editProject(ProjectRepository $projectRepository , ): Response
     {
         
-
-        
+        $projectCustomKey = new ProjectCustomKey;
+        $form = $this->createForm(ProjectCustomKeyType::class, $projectCustomKey);
 
         return $this->render('project/edit.html.twig', [
             'controller_name' => 'modificationProject',
+            'form' => $form,
             
         ]);
     }

@@ -27,6 +27,9 @@ class Key
     #[ORM\JoinColumn(nullable: false)]
     private ?KeyCategory $category = null;
 
+    #[ORM\OneToOne(mappedBy: 'keyy', cascade: ['persist', 'remove'])]
+    private ?ProjectCustomKey $projectCustomKey = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +79,23 @@ class Key
     public function setCategory(?KeyCategory $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getProjectCustomKey(): ?ProjectCustomKey
+    {
+        return $this->projectCustomKey;
+    }
+
+    public function setProjectCustomKey(ProjectCustomKey $projectCustomKey): self
+    {
+        // set the owning side of the relation if necessary
+        if ($projectCustomKey->getKeyy() !== $this) {
+            $projectCustomKey->setKeyy($this);
+        }
+
+        $this->projectCustomKey = $projectCustomKey;
 
         return $this;
     }

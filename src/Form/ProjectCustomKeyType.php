@@ -2,9 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\Project;
-use App\Entity\Customer;
-use App\Entity\KeyCategory;
+use App\Entity\Key;
+use App\Entity\ProjectCustomKey;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -12,12 +11,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class ProjectType extends AbstractType
+class ProjectCustomKeyType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
+            
             ->add('font', ChoiceType::class, [
                 'choices' => [
                     'Mont serrat' => '"montSerrat",sans-serif',
@@ -29,28 +28,20 @@ class ProjectType extends AbstractType
                 'data' => '"montSerrat",sans-serif', 
             ])
             ->add('Color', ColorType::class)
-            
-            
-            ->add('keyCategory', EntityType::class, [
-                'class' => KeyCategory::class,
-                'choice_label' => 'category_name',
-                'multiple' => true,
-                'expanded' => true,
-                
+            // ->add('picture')
+            // ->add('project')
+            ->add('keyy' , EntityType::class,[
+                'class' => Key::class,
+                'choice_label' => 'symbol',
+                'label' => 'Touche a modifié',
             ])
-            // ->add('orderStat')
-            // ->add('customer', EntityType::class, [
-            //     'class' => Customer::class,
-            //     'choice_label' => 'id',
-                
-            // ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Project::class,
+            'data_class' => ProjectCustomKey::class,
         ]);
     }
 }
