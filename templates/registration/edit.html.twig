@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<body class="body-panier">
+  
+    
+     <section>
+
+        <h1 class="h1-logging">Registration</h1>
+        <div class="container-flex-logging">
+           
+            {{ form_start(form, {'attr': {'class': 'form-logging'}}) }}
+            {# {{ form_row(registrationForm.name) }}
+            {{ form_row(registrationForm.lastName) }} 
+            {{ form_row(registrationForm.email) }} }
+            { {{ form_row(registrationForm.customer.adresse1) }}
+            {{ form_row(registrationForm.customer.adresse2) }}
+            {{ form_row(registrationForm.customer.city) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}
+             {{ form_row(registrationForm.customer.phone) }}
+            {{ form_row(registrationForm.agreeTerms) }} #}
+
+            <button type="submit" class="btn">Register</button>
+        {{ form_end(form) }}            
+        </div>
+    </section>
+{% endblock %}

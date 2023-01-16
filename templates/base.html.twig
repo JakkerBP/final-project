@@ -26,7 +26,7 @@
                     <ul>
                     <li><a href="{{ path('home_user') }}">Accueil</a></li>
                     <li><a href="{{ path('ourC_user') }}">Nos créations</a></li>
-                    <li><a href="{{ path('listC_user') }}">Ma personnalisation</a></li>
+                    <li><a href="{{ path('app_project_list') }}">Ma personnalisation</a></li>
                     <li><a href="{{ path('contact_user') }}">Contact</a></li>
                     </ul>
                 </div>
@@ -55,9 +55,14 @@
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <div class="dropDownMenu">
                         <ul>
-                            <a href=""><li>Mon profil</li></a>
+                        {% if app.user %}
+                            <a href="{{ path('app_register_details', {'id': app.user.id}) }}"><li>Mon compte</li></a> 
                             <a href=""><li>Mes commandes</li></a>
-                            <a href=""><li>Déconnexion</li></a>
+                            <a href="{{ path('app_logout') }}"><li>Déconnexion</li></a>  
+                        {% else %}
+                            <a href="{{ path('app_login') }}"><li> Se Connecter</li></a>
+                            <a href="{{ path('app_register') }}"><li> S'inscrire</li></a>    
+                        {% endif %} 
                         </ul>
                     </div>
                 </div>

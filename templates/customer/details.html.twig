@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos informations{% endblock %}
+
+{% block body %}
+    <h1>Customer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Numéro d'utilisateur</th>
+                <td>{{ app.user.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ app.user.customer.surname }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ app.user.customer.name }}</td>
+            </tr>
+            <tr>
+                <th>Adresse mail</th>
+                <td>{{ app.user.email }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>{{ app.user.customer.phone }}</td>
+            </tr>
+            <tr>
+                <th>Votre adresse</th>
+                <td>{{ app.user.customer.adress.adressLine }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <div class="spacing">
+        <a style="margin-top:300px;" href="{{ path('app_register_edit', {'id': app.user.id}) }}">Modifier mes informations personnelles</a>
+    </div>
+    
+{% endblock %}

@@ -67,23 +67,16 @@ class ProjectController extends AbstractController
             'creations' => $creations
         ]);
     }
-    #[Route('/project/edit/{id}', name: 'app_project_edit')]
+    #[Route('/project/edit/{id}', name: 'app_project_edit', methods: ['GET', 'POST'])]
     public function editProject( UserInterface $userInterface , ProjectRepository $projectRepository , CustomerRepository $customerRepository): Response
     {
-        $customerId = $this->getUser()->getCustomer()->getId();
-        $customer = $customerRepository->find($customerId);
-        $creations = $projectRepository->findBy(
-            ['customer' => $customer],
-            ['id' => 'ASC']
-        );
+        
 
-        // foreach ($creations as $creation) {
-        //     # code...
-        // }
+        
 
-        return $this->render('project/index.html.twig', [
-            'controller_name' => 'ListProject',
-            'creations' => $creations
+        return $this->render('project/edit.html.twig', [
+            'controller_name' => 'modificationProject',
+            
         ]);
     }
     #[Route('/project/test', name: 'app_project_test')]

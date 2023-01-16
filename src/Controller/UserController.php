@@ -29,35 +29,6 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
-    #[Route('/list-creation', name: 'listC_user')]
-    public function listCreation(): Response
-    {
-        return $this->render('user/listCreations.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
-    }
-    #[Route('/details-creation', name: 'detailsC_user')]
-    public function detailsCreation(): Response
-    {
-        return $this->render('user/detailsCreation.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
-    }
-    #[Route('/modify-creation', name: 'modifyC_user')]
-    public function modifyCreation(): Response
-    {
-        return $this->render('user/modificationCreation.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
-    }
-    #[Route('/new-creation', name: 'newC_user')]
-    public function newCreation(): Response
-    {
-        return $this->render('user/formNewCreation.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
-    }
-
     #[Route('/contact', name: 'contact_user')]
     public function contact(): Response
     {
@@ -65,30 +36,31 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
-    #[Route('/customer/new', name: 'contact_user')]
-    public function new(UserInterface $user, Request $request, CustomerRepository $customerRepository): Response
-    {
-        $customer = new Customer();
-        $form = $this->createForm(OwnAddCustomerType::class, $customer);
+    // #[Route('/customer/new', name: 'contact_user')]
+    // public function new(UserInterface $user, Request $request, CustomerRepository $customerRepository): Response
+    // {
+    //     $customer = new Customer();
+    //     $form = $this->createForm(OwnAddCustomerType::class, $customer);
         
-        $userId = $user->getId();
-        $form->get('user')->setData($userId);
+    //     $userId = $user->getId();
+    //     $form->get('user')->setData($userId);
 
 
 
-        $form->handleRequest($request);
+    //     $form->handleRequest($request);
 
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $customerRepository->save($customer, true);
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $customerRepository->save($customer, true);
 
-            return $this->redirectToRoute('app_admin_customer_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //         return $this->redirectToRoute('app_admin_customer_index', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->renderForm('admin_customer/new.html.twig', [
-            'customer' => $customer,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->renderForm('admin_customer/new.html.twig', [
+    //         'customer' => $customer,
+    //         'form' => $form,
+    //     ]);
+    // }
+    
 
 }

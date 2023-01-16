@@ -30,6 +30,7 @@ class ProjectType extends AbstractType
             ])
             ->add('Color', ColorType::class)
             
+            
             ->add('keyCategory', EntityType::class, [
                 'class' => KeyCategory::class,
                 'choice_label' => 'category_name',
