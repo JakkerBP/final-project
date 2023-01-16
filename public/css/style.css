@@ -829,7 +829,7 @@ body #modificationCreation .mainSection {
   display: flex;
   flex-wrap: wrap;
   background-color: #5E80CD;
-  width: 90vw;
+  width: 95vw;
   height: 75vh;
   border-radius: 5px;
 }
@@ -877,17 +877,17 @@ body #modificationCreation .mainSection .secondSection {
   height: 65%;
 }
 body #modificationCreation .mainSection .secondSection .parent {
-  background-color: black;
   display: grid;
   grid-template-columns: repeat(60, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   width: 90%;
-  background-color: black;
+  background-color: #253865;
 }
 body #modificationCreation .mainSection .secondSection .parent div {
   background-color: white;
+  border: solid 2px black;
 }
 body #modificationCreation .mainSection .secondSection .parent .div1 {
   grid-area: 1/1/2/5;
@@ -1080,9 +1080,9 @@ body #modificationCreation .mainSection .secondSection .parent .key {
   background-color: white;
   height: 100%;
   width: 100%;
-  color: red;
+  color: black;
   border-radius: 10px;
-  border: 2px solid rgb(43, 68, 38);
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1091,7 +1091,7 @@ body #modificationCreation .mainSection .secondSection .parent .keyAlph {
   /* background-color: purple; */
 }
 body #modificationCreation .mainSection .secondSection .parent .keyModifier {
-  /* background-color: brown; */
+  font-size: 10px;
 }
 body #modificationCreation .mainSection .thirdSection {
   height: 25%;

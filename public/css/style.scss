@@ -877,7 +877,7 @@ body{
             display: flex;
             flex-wrap: wrap;
             background-color: $articleBis;
-            width: 90vw;
+            width: 95vw;
             height: 75vh;
             border-radius: 5px;
             section{
@@ -927,16 +927,17 @@ body{
                 height: 65%;
                 
                 .parent {
-                    background-color: black;
+                    
                     display: grid;
                     grid-template-columns: repeat(60, 1fr);
                     grid-template-rows: repeat(5, 1fr);
                     grid-column-gap: 0px;
                     grid-row-gap: 0px;
                     width: 90%;
-                    background-color: black;
+                    background-color: $bgColor ;
                     div{
                         background-color: white;
+                        border: solid 2px black;
                     }
                     .div1 { grid-area: 1 / 1 / 2 / 5; }
                     .div2 { grid-area: 1 / 5 / 2 / 9; }
@@ -1005,9 +1006,9 @@ body{
                         background-color: white;
                         height: 100%;
                         width: 100%;
-                        color: red;
+                        color: black;
                         border-radius: 10px;
-                        border: 2px solid rgb(43, 68, 38);
+                        border: none;
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -1016,7 +1017,7 @@ body{
                         /* background-color: purple; */
                     }
                     .keyModifier{
-                        /* background-color: brown; */
+                        font-size: 10px;
                     }
                 }
             }
