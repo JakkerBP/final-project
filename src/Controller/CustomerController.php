@@ -32,7 +32,6 @@ class CustomerController extends AbstractController
     } 
     #[Route('customer/{id}/edit', name: 'app_register_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request,UserRepository $userRepository, User $user, Customer $customer, CustomerRepository $customerRepository): Response
-   
     {   
         
         $form = $this->createForm(RegistrationFormType::class, $user);

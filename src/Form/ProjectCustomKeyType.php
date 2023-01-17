@@ -17,7 +17,12 @@ class ProjectCustomKeyType extends AbstractType
     {
         $builder
             
-            ->add('font', ChoiceType::class, [
+        ->add('keyy' , EntityType::class,[
+            'class' => Key::class,
+            'choice_label' => 'symbol',
+            'label' => 'Touche a modifié',
+        ])
+        ->add('font', ChoiceType::class, [
                 'choices' => [
                     'Mont serrat' => '"montSerrat",sans-serif',
                     'Courier New' => '"Courier New", Courier, monospace',
@@ -27,14 +32,9 @@ class ProjectCustomKeyType extends AbstractType
                 ],
                 'data' => '"montSerrat",sans-serif', 
             ])
-            ->add('Color', ColorType::class)
+        ->add('Color', ColorType::class)
             // ->add('picture')
             // ->add('project')
-            ->add('keyy' , EntityType::class,[
-                'class' => Key::class,
-                'choice_label' => 'symbol',
-                'label' => 'Touche a modifié',
-            ])
         ;
     }
 
