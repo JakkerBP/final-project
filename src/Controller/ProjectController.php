@@ -80,7 +80,9 @@ class ProjectController extends AbstractController
         ]);
     }
     #[Route('/project/edit/{id}', name: 'app_project_edit', methods: ['GET', 'POST'])]
-    public function editProject(Project $project , Request $request, ProjectCustomKeyRepository $projectCustomKeyRepository, KeyRepository $keyRepository): Response
+    public function editProject(Project $project , Request $request, 
+                                ProjectCustomKeyRepository $projectCustomKeyRepository,
+                                KeyRepository $keyRepository): Response
     {
         
         $customerId = $this->getUser()->getCustomer()->getId();
@@ -128,6 +130,8 @@ class ProjectController extends AbstractController
             $projectCustomKeyRepository->save($projectCustomKey, true);
             //Sauvegarde la keyCustom en BDD
 
+            header("Refresh:0");
+
         }
 
         return $this->render('project/edit.html.twig', [
@@ -136,7 +140,7 @@ class ProjectController extends AbstractController
             'ids' => $ids,
             'idsColor' => $idsColor,
             
-        ]);
+        ]);//Création de ma vue en lui passant les variables
     }
     #[Route('/project/test', name: 'app_project_test')]
     public function testProject(): Response

@@ -13,7 +13,7 @@
                 <div>
                     <h2>Modification keycap</h2>
                     
-                    {{ include('project/_form.html.twig') }}
+                    {{ include('project/_form1.html.twig') }}
                 </div>
             </section>
             <section class="secondSection">
@@ -89,8 +89,8 @@
             </section>
             <section class="thirdSection">
                 <div>
-                    <button class="bReset">RESET</button>
-                    <button class="bSave">SAUVEGARDER</button>
+                    {# <button class="bReset">RESET</button> #}
+                    <a href="{{ path('app_project_list') }}"> <button class="bSave">Retour a ma liste de création</button></a>
                 </div> 
             </section>
             <section class="fourthSection">

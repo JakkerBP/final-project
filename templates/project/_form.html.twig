@@ -1,4 +1,9 @@
+<main id="newCreation">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+        
+            {{ form_widget(form) }}
+
+            <button style="auto; margin-top:-50px; border: 2px solid white;" class="btn">{{ button_label|default('Save') }}</button>
+        
 {{ form_end(form) }}
+</main>

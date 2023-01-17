@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\KeyRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: KeyRepository::class)]
@@ -27,8 +29,15 @@ class Key
     #[ORM\JoinColumn(nullable: false)]
     private ?KeyCategory $category = null;
 
-    #[ORM\OneToOne(mappedBy: 'keyy', cascade: ['persist', 'remove'])]
-    private ?ProjectCustomKey $projectCustomKey = null;
+    #[ORM\OneToMany(mappedBy: 'keyy', targetEntity: ProjectCustomKey::class)]
+    private Collection $projectCustomKeys;
+
+    public function __construct()
+    {
+        $this->projectCustomKeys = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -83,20 +92,35 @@ class Key
         return $this;
     }
 
-    public function getProjectCustomKey(): ?ProjectCustomKey
+    /**
+     * @return Collection<int, ProjectCustomKey>
+     */
+    public function getProjectCustomKeys(): Collection
     {
-        return $this->projectCustomKey;
+        return $this->projectCustomKeys;
     }
 
-    public function setProjectCustomKey(ProjectCustomKey $projectCustomKey): self
+    public function addProjectCustomKey(ProjectCustomKey $projectCustomKey): self
     {
-        // set the owning side of the relation if necessary
-        if ($projectCustomKey->getKeyy() !== $this) {
+        if (!$this->projectCustomKeys->contains($projectCustomKey)) {
+            $this->projectCustomKeys->add($projectCustomKey);
             $projectCustomKey->setKeyy($this);
         }
 
-        $this->projectCustomKey = $projectCustomKey;
+        return $this;
+    }
+
+    public function removeProjectCustomKey(ProjectCustomKey $projectCustomKey): self
+    {
+        if ($this->projectCustomKeys->removeElement($projectCustomKey)) {
+            // set the owning side to null (unless already changed)
+            if ($projectCustomKey->getKeyy() === $this) {
+                $projectCustomKey->setKeyy(null);
+            }
+        }
 
         return $this;
     }
+
+
 }

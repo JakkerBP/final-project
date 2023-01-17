@@ -645,84 +645,141 @@ body #listCreations .mainContent .containerBox .scroller .containerCreation .box
 body #listCreations .mainContent .containerBox .scroller .containerCreation .boxIn .buttonBox #bCommand {
   background-color: green;
 }
-body #newCreation div {
+body #newCreation {
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+body #newCreation form {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  flex-direction: column;
+  align-items: center;
 }
-body #newCreation div form {
-  background-color: #5E80CD;
-  padding: 40px;
+body #newCreation form div {
+  justify-content: center;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-}
-body #newCreation div form h2 {
-  font-size: 50px;
-  color: #FFFDFD;
-  margin-bottom: 50px;
-}
-body #newCreation div form label {
-  font-size: 25px;
-  margin-bottom: 10px;
-}
-body #newCreation div form label i {
-  font-style: normal;
-  font-size: 15px;
-}
-body #newCreation div form input {
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  width: 100%;
-  margin-bottom: 20px;
   background-color: #5E80CD;
-  border: none;
-  border-bottom: 1px solid #1E2F57;
-  color: #FFFDFD;
-}
-body #newCreation div form textarea {
-  background-color: #1E2F57;
-  border-radius: 5px;
-  padding: 5px;
-}
-body #newCreation div form input::-moz-placeholder {
-  font-size: 15px;
-  color: #1E2F57;
-}
-body #newCreation div form input:-ms-input-placeholder {
-  font-size: 15px;
-  color: #1E2F57;
-}
-body #newCreation div form input::placeholder {
-  font-size: 15px;
-  color: #1E2F57;
-}
-body #newCreation div form .checkTool {
+  padding: 20px;
+  width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  border-bottom: 1px solid #1E2F57;
-  margin-top: 5px;
+  justify-content: center;
+  align-items: center;
 }
-body #newCreation div form .checkTool label {
-  font-size: 25px;
+body #newCreation form div div {
+  border-radius: none;
+  width: 50%;
 }
-body #newCreation div form .checkTool label i {
-  font-size: 15px;
+body #newCreation form div div #project_keyCategory {
+  display: flex;
+  flex-direction: column;
 }
-body #newCreation div form .buttonBox {
-  margin: 0%;
+body #register {
+  margin-top: 60px;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body #register form {
+  border-radius: 10px;
+  background-color: #5E80CD;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+body #register form div {
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #5E80CD;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #register form div select {
+  width: 40%;
+  color: black;
+}
+body #login {
+  margin-top: 150px;
+  margin-bottom: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body #login form {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #5E80CD;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+body #login form button {
   margin-top: 50px;
-  padding: 0%;
+  background-color: #5E80CD;
+  color: black;
+  border: 3px solid white;
 }
-body #newCreation div form .buttonBox input[type=submit] {
-  text-align: center;
-  padding: 0%;
-  padding: 5px;
-  width: 100px;
-  border: solid 3px #FFFDFD;
+body #login form div {
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #5E80CD;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #login form div select {
+  width: 40%;
+  color: black;
+}
+body #editInfo {
+  margin-top: 60px;
+  margin-bottom: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body #editInfo form {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #5E80CD;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+body #editInfo form button {
+  margin-top: 50px;
+  background-color: #5E80CD;
+  color: black;
+  border: 3px solid white;
+}
+body #editInfo form div {
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #5E80CD;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #editInfo form div select {
+  width: 40%;
+  color: black;
 }
 body #detailsCreation .mainContent {
   margin-top: 5vw;
@@ -851,6 +908,12 @@ body #modificationCreation .mainSection section div h2 {
 body #modificationCreation .mainSection .firstSection {
   width: 25%;
   height: 75%;
+}
+body #modificationCreation .mainSection .firstSection input {
+  width: 50%;
+}
+body #modificationCreation .mainSection .firstSection select {
+  width: 75%;
 }
 body #modificationCreation .mainSection .firstSection div .containerOption {
   margin-top: 20%;
@@ -1087,9 +1150,6 @@ body #modificationCreation .mainSection .secondSection .parent .key {
   justify-content: center;
   align-items: center;
 }
-body #modificationCreation .mainSection .secondSection .parent .keyAlph {
-  /* background-color: purple; */
-}
 body #modificationCreation .mainSection .secondSection .parent .keyModifier {
   font-size: 10px;
 }
@@ -1098,19 +1158,14 @@ body #modificationCreation .mainSection .thirdSection {
   width: 25%;
 }
 body #modificationCreation .mainSection .thirdSection div .bSave {
-  background-color: green;
-}
-body #modificationCreation .mainSection .thirdSection div .bReset {
-  background-color: red;
+  background-color: #5E80CD;
+  height: 100%;
 }
 body #modificationCreation .mainSection .thirdSection div button {
   border-radius: 5px;
   border: none;
   width: 100%;
   height: 40%;
-}
-body #modificationCreation .mainSection .thirdSection div button + button {
-  margin-top: 10%;
 }
 body #modificationCreation .mainSection .fourthSection {
   height: 35%;
