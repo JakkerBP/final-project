@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderController!{% endblock %}
+
+{% block body %}
+     {% if orders is empty %}
+                    <div style=" display:flex;align-items:center; justify-content:center; width:100%;">
+                        <h2> Vous n'avez pas de Commande </h2>
+                    </div>
+        {% elseif orders is defined %}
+            
+                {% for sub_array in orders %}
+                    {% for order in sub_array %}
+                        {{ order.id }}
+                    {% endfor %}
+                {% endfor %} 
+         
+            
+         {% else %}      
+    {% endif %}
+{% endblock %}

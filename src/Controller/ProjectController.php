@@ -139,16 +139,24 @@ class ProjectController extends AbstractController
             'form' => $form,
             'ids' => $ids,
             'idsColor' => $idsColor,
+            'project' => $project,
             
         ]);//Création de ma vue en lui passant les variables
     }
-    #[Route('/project/test', name: 'app_project_test')]
-    public function testProject(): Response
+    #[Route('/project/delete/{id}', name: 'app_project_delete')]
+    public function delete(ProjectRepository $projectRepository , Project $project , KeyCategoryRepository $keyCategoryRepository ): Response
     {
         
-        return $this->render('project/test.html.twig', [
-            
-        ]);
+        // $projectId = $project->getId();
+        // $projectRaw = $projectRepository->find($projectId);
+        // dd($projectId);
+        // $test = $project->getKeyCategory();
+        // $keyCategories = $keyCategoryRepository->findByProject($test);
+        // dd($keyCategories);
+        // $project->removeKeyCategory($keyCategory);
+        // $project->removeElement($keyCategory);
+        // $projectRepository->remove($project, true);
+        
     }
     
 }

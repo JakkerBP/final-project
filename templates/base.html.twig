@@ -57,7 +57,7 @@
                         <ul>
                         {% if app.user %}
                             <a href="{{ path('app_register_details') }}"><li>Mon compte</li></a> 
-                            <a href=""><li>Mes commandes</li></a>
+                            <a href="{{ path('app_order_list')}}"><li>Mes commandes</li></a>
                             <a href="{{ path('app_logout') }}"><li>Déconnexion</li></a>  
                         {% else %}
                             <a href="{{ path('app_login') }}"><li> Se Connecter</li></a>

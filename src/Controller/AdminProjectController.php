@@ -51,7 +51,7 @@ class AdminProjectController extends AbstractController
     #[Route('/{id}/edit', name: 'app_admin_project_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Project $project, ProjectRepository $projectRepository): Response
     {
-        $form = $this->createForm(Project1Type::class, $project);
+        $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

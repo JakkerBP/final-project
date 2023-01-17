@@ -3,7 +3,15 @@
 {% block title %}Hello ProjectController!{% endblock %}
 
 {% block body %}
-
+<script>
+    setTimeout(function(){
+        var alert = document.getElementsByClassName("alert-success")[0];
+        alert.style.display = "none";
+    }, 5000);
+</script>
+{% for message in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
 <main id="listCreations">
         <div class="mainContent">
             <div class="containerBox">
@@ -37,8 +45,8 @@
                                 </div>
                                 <div class="buttonBox customHeight">
                                     <a href="{{ path('app_project_edit', {'id': creation.id}) }}"><button id="bDetails">Détails</button></a>
-                                    <a href=""><button id="bSupp">Supprimer</button></a>
-                                    <a href=""><button id="bCommand">Commander</button></a>
+                                    <a href="{{ path('app_project_delete', {'id': creation.id}) }}"><button id="bSupp">Supprimer</button></a>
+                                    <a href="{{ path('app_order', {'id': creation.id})}}"><button id="bCommand">Commander</button></a>
                                 </div>
                             </div>
                         </div>
