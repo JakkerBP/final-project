@@ -1,39 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello OrderController!{% endblock %}
+{% block title %}Vos commandes{% endblock %}
 
 {% block body %}
      {% if orders is empty %}
                     <div style=" display:flex;align-items:center; justify-content:center; width:100%;">
-                        <h2> Vous n'avez pas de Commande </h2>
+                        <h2 style="margin-top:30vh; margin-bottom:34vh;" > Vous n'avez pas de Commande </h2>
                     </div>
         {% elseif orders is defined %}
         <h2 style="text-align:center; margin-top:30px; " > Liste de vos commandes </h2>
-                {% for sub_array in orders %}
-                    {% for order in sub_array %}
-                        
-    <main id="listOrder">
-        <section id="secondContent" class="secondContent">
-            
-            <section class="globalArticleContainer">
-                <div class="containerArticle">
-                    <div class="picContainer">
-                        <p> Numéro de commande : {{ order.id }} </p>
-                        <p> Status de la commande : {{ order.status }} </p>
-                        <p> Commandé le : {{ order.orderAt|date('d-m-Y') }} </p>
-                        <p> Commentaire : {{ order.comment }} </p>
-                        <p> Paiement effectué le : {{ order.paidAt|date('d-m-Y') }} </p>
-                        <p> Date de livraison : {{ order.deliveryAt|date('d-m-Y') }} </p>
-                    </div>
-                    <div class="contentArticle">
-                        <p>  </p> 
-                    </div>
-                </div>
-            </section>
-        </section>
-    </main>
-                    {% endfor %}
-                {% endfor %} 
+                        <main id="listOrder">
+                            <section id="secondContent" class="secondContent"> 
+                            {% for sub_array in orders %}
+                                {% for order in sub_array %}
+                                <section class="globalArticleContainer">
+                                    <div class="containerArticle">
+                                        <div class="picContainer">
+                                            <p> Numéro de commande : {{ order.id }} </p>
+                                            <p> Status de la commande : {{ order.status }} </p>
+                                            <p> Commandé le : {{ order.orderAt|date('d-m-Y') }} </p>
+                                            <p> Commentaire : {{ order.comment }} </p>
+                                            <p> Paiement effectué le : {{ order.paidAt|date('d-m-Y') }} </p>
+                                            <p> Date de livraison : {{ order.deliveryAt|date('d-m-Y') }} </p>
+                                        </div>
+                                    </div>
+                                </section>
+                                {% endfor %}
+                            {% endfor %} 
+                            </section>
+                        </main>
          
             
          {% else %}      

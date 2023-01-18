@@ -1225,7 +1225,8 @@ body #listOrder {
 body #listOrder .secondContent {
   margin-top: 0.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -1237,6 +1238,7 @@ body #listOrder .secondContent h2 {
 }
 body #listOrder .secondContent .globalArticleContainer {
   width: 80vw;
+  width: 40%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -1244,6 +1246,8 @@ body #listOrder .secondContent .globalArticleContainer {
 body #listOrder .secondContent .globalArticleContainer .containerArticle {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   background-color: #4361A6;
   padding: 30px;
   border-radius: 15px;
@@ -1281,6 +1285,9 @@ body #listOrder .secondContent .globalArticleContainer .containerArticle .conten
 @media (max-width: 980px) {
   body header .burgerMenu {
     display: block;
+  }
+  body header .burgerMenu .sidenav {
+    height: 50vh;
   }
   body header .containerTitleWS {
     width: 50%;
@@ -1342,6 +1349,36 @@ body #listOrder .secondContent .globalArticleContainer .containerArticle .conten
   }
   body #modificationCreation footer {
     display: none;
+  }
+  body #listOrder {
+    padding-top: 1rem;
+  }
+  body #listOrder .secondContent {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  body #listOrder .secondContent h2 {
+    text-align: center;
+    width: 60vw;
+    font-size: 3vw;
+    margin-bottom: 7rem;
+  }
+  body #listOrder .secondContent .globalArticleContainer {
+    width: 80vw;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  body #dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 @media (max-width: 767px) {

@@ -1264,7 +1264,8 @@ body{
         .secondContent{
             margin-top: 0.5rem;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap:wrap;
             justify-content: center;
             align-items: center;
             h2{
@@ -1275,6 +1276,7 @@ body{
             }
             .globalArticleContainer{
                 width: 80vw;
+                width: 40%;
                 display: flex;
                 align-items: center;
                 flex-direction: column;
@@ -1282,10 +1284,13 @@ body{
                 .containerArticle{
                     display: flex;
                     flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
                     background-color: $articleColor;
                     padding: 30px;
                     border-radius: 15px;
                     margin-bottom: 2rem;
+                    // width: 40%;
                     .picContainer{
                         img{
                             width: 40vw;
@@ -1334,6 +1339,9 @@ body{
         header {
             .burgerMenu{
                 display: block;
+                .sidenav{
+                    height: 50vh;
+                }
             }
             .containerTitleWS{
                 width:50%;
@@ -1432,6 +1440,41 @@ body{
             footer{
                 display: none;
             }
+        }
+        #listOrder{
+            padding-top: 1rem;
+            // height: 100vh;
+            
+            .secondContent{
+                margin-top: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                flex-wrap:wrap;
+                justify-content: center;
+                align-items: center;
+                h2{
+                    text-align: center;
+                    width: 60vw;
+                    font-size: 3vw;
+                    margin-bottom: 7rem;
+                }
+                .globalArticleContainer{
+                    width: 80vw;
+                    width: 40%;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+    
+
+                    
+                }
+            }
+        }
+        #dashboard{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
