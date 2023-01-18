@@ -1257,6 +1257,76 @@ body{
             }
         }
     }
+    #listOrder{
+        padding-top: 1rem;
+        // height: 100vh;
+        
+        .secondContent{
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2{
+                text-align: center;
+                width: 60vw;
+                font-size: 3vw;
+                margin-bottom: 7rem;
+            }
+            .globalArticleContainer{
+                width: 80vw;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                .containerArticle{
+                    display: flex;
+                    flex-direction: row;
+                    background-color: $articleColor;
+                    padding: 30px;
+                    border-radius: 15px;
+                    margin-bottom: 2rem;
+                    .picContainer{
+                        img{
+                            width: 40vw;
+                        }
+                    }
+
+                    .contentArticle{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+
+
+                        h3{
+                            width: 60%;
+                            font-size: 35px;
+                        }
+
+                        p{
+                            margin-top: 40px;
+                            width: 60%;
+                            font-size: 1.2vw;
+                        }
+
+                        button{
+                            align-items: left;
+                            margin-top: 40px;
+                            width: 60%;
+                            height: 30px;
+                            font-size: 15px;
+                            
+                            border-radius: 5px;
+                            background-color: $bgColor;
+                            border: none;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
 }
 @media (max-width: 980px) {
 
@@ -1273,6 +1343,7 @@ body{
             }
         }
         footer{
+            
             .higherPartFooter{
                 .titleFooter{
                     width: 0%;
